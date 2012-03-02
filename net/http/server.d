@@ -274,8 +274,8 @@ public:
 		string addr = address.toAddrString();
 		string port = address.toPortString();
 		return "http://" ~
-			(vhost ? vhost : addr == "0.0.0.0" || addr == "::" ? "*" : addr.contains(":") ? "[" ~ addr ~ "]" : addr) ~
-			(port == "80" ? "" : ":" ~ port);
+			(vhost ? vhost : (addr == "0.0.0.0" || addr == "::" ? "*" : addr.contains(":") ? "[" ~ addr ~ "]" : addr) ~
+			(port == "80" ? "" : ":"~port));
 	}
 
 public:

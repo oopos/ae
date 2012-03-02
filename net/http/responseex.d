@@ -133,6 +133,10 @@ public:
 				}
 
 				html ~= `<ul>`;
+
+				if (filename=="")
+					filename = ".";
+
 				foreach (DirEntry de; dirEntries(filename, SpanMode.shallow))
 				{
 					auto name = baseName(de.name);
